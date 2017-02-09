@@ -1,0 +1,95 @@
+body{
+	margin:0 auto;
+	padding: 20px;
+	font-size: 14px;
+	font-family: Tahoma, Arial;
+	color: #333;
+}
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.container{
+	max-width: 1024px;
+	margin: 0 auto;
+	text-align: center;
+}
+/* .article-container css starts here */
+.article-container{
+	border:1px solid #ccc;
+	padding: 10px;
+	background-color: #efefef;
+	overflow: hidden;
+}
+
+.article-container .filters{
+	width: 60%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.article-container .filters .input-group{
+	width: 46%;
+	float: left;
+	text-align: left;
+	padding-bottom: 10px;
+	margin-right: 8%;
+	font-weight: bold;
+}
+.article-container .filters .input-group:nth-child(even){
+	margin-right: 0;
+}
+.article-container .filters .input-group label,
+.article-container .filters .input-group input,
+.article-container .filters .input-group select{
+	display: block;
+	text-align: left;
+	width: 100%;
+	margin-top: 3px;
+}
+.article-container .filters .input-group input,
+.article-container .filters .input-group select{
+	border: 1px solid #ddd;
+	padding: 10px 5px;
+}
+.article-container .filters .input-group input{
+	width: 96%;
+}
+/*  Celebrity List Css starts here   */
+.article-container .celebrityList{
+	margin: 7px auto 0;
+	width: 60%;
+	padding: 0;
+	color:#888;
+} 
+.article-container .celebrityList > li{
+	width: 100%;
+	background-color: #fff;
+	border:1px solid #eee;
+	border-top: none;
+} 
+.article-container .celebrityList > li .details{
+	padding-bottom: 8px;
+	font-weight: bold;
+}
+.article-container .celebrityList > li .details li{
+	padding: 7px 0;
+} 
+.article-container .celebrityList > li .details p,
+.article-container .celebrityList .no-result p{
+	background-color: #5bcbf5;
+	margin: 0;
+	color: #333;
+	padding: 10px 0;
+}
+/*  Responsive CSS starts  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px){
+	.article-container .filters .input-group,
+	.article-container .celebrityList,
+	.article-container .filters,
+	.article-container .filters .input-group input{
+		width: 100%;
+		margin-right: 0;
+	}
+}
+

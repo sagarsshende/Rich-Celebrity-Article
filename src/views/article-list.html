@@ -1,0 +1,53 @@
+<section class="article-list" ng-controller="articleController as article">
+    <!-- Header starts -->
+    <hgroup>
+        <h1>{{articleDetails.pageTitleH1}}</h1>
+        <h2>{{articleDetails.pageTitleH2}}</h2>
+        <h3>{{articleDetails.description}}</h3>
+        <h4>Reference: <a href="http://www.therichest.com/top-lists/top-100-richest-celebrities/">{{articleDetails.referenceLink}}</a></h4>
+    </hgroup>
+
+    <div class="article-container">
+        <!-- Filter starts -->
+        <div class="filters">   
+            <div class="input-group">
+                <label>Birthplace:</label>
+                <select ng-model="myBirthPlace.country">
+                    <option value="">Show All</option>
+                    <option ng-repeat="articleDetail in articleDetails.celebrityList | unique:'country'" >{{articleDetail.country}}</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Currency Converter:</label>
+                <select ng-model="myCurrency" ng-options="currency.id for currency in currencies"></select>
+            </div>
+            <div class="input-group">
+                <label>Search:</label>
+                <input type="text" placeholder="Search" ng-model="searchText"></input>
+            </div>
+            <div class="input-group">
+                <label>Order By:</label>
+                <select ng-model="myOrderSort" ng-options="orderBySort.id for orderBySort in orderBySorts"></select>
+            </div>
+        </div>
+        <!-- Celebrity List starts -->
+        <ul class="celebrityList">
+            <li ng-repeat="articleDetail in articleDetails.celebrityList | orderBy:myOrderSort.value | filter:myBirthPlace.country | filter:searchText as results">
+                <div class="details">
+                    <p>No : {{articleDetail.rank}}</p>
+                    <ul>
+                        <li>Name : {{articleDetail.name}}</li>
+                        <li>Net Worth : {{myCurrency.symbol}} {{articleDetail.netWorth / myCurrency.value}}</li>
+                        <li>Age : {{articleDetail.age}}</li>
+                        <li>Country of Birth : {{articleDetail.country}}</li>
+                    </ul>
+                </div>
+                
+            </li>
+            <!-- No result found -->
+            <li class="no-result">
+                <p ng-if="results.length==0">No results found</p>
+            </li>
+        </ul>        
+    </div>
+</section>
